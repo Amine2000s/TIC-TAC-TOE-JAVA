@@ -1,5 +1,7 @@
 package application;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,8 +11,8 @@ import javafx.scene.text.Font;
 public class infoCenter {
 	
 	private StackPane pane ; 
-	private Label message ; 
-	private Button startGameButton ; 
+	private  Label message ; 
+	private  Button startGameButton ; 
 	
 	public infoCenter() {
 		
@@ -19,9 +21,9 @@ public class infoCenter {
 		
 		pane.setTranslateX(UIconstant.APP_WIDTH / 2);
 		
-		pane.setTranslateY(UIconstant.APP_HEIGHT / 2);
+		pane.setTranslateY(UIconstant.INFO_CENTER_HEIGHT / 2);
 		
-		message = new Label ("Tic-Tac-Toe Chabi");
+		message = new Label ("Tic-Tac-Toe");
 		
 		message.setMinSize(UIconstant.APP_WIDTH,UIconstant.INFO_CENTER_HEIGHT);
 		
@@ -44,23 +46,27 @@ public class infoCenter {
 			return pane ; 
 		}
 		
-		public void updateMessagge(String message) {
+		public void updateMessage(String messagee) {
 			
-			this.message.setText(message);
+			this.message.setText(messagee);
 			
 		
 	}
 		
 		public void showStartButton() {
 			
-			startGameButton.setVisible(true);
+			this.startGameButton.setVisible(true);
 			
 		}
 		
 		public void hideStartButton() {
 			
-			startGameButton.setVisible(false);
+			this.startGameButton.setVisible(false);
 		}
 		
-		
+		public void setStartButtononAction(EventHandler<ActionEvent> onAction) {
+			
+			this.startGameButton.setOnAction(onAction);
+			
+		}
 }
