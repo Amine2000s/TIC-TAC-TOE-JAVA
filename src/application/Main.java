@@ -14,11 +14,16 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Label l = new Label("hello");
-			StackPane root = new StackPane();
+			
+			BorderPane root = new BorderPane();
+			
 			root.getChildren().add(l);
-			//BorderPane.setAlignment(l, Pos.BOTTOM_CENTER);
+
 			Scene scene = new Scene(root,UIconstant.APP_WIDTH,UIconstant.APP_HEIGHT);
-			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+
+			initLayout(root);
+			
+			
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
@@ -26,6 +31,23 @@ public class Main extends Application {
 		}
 	}
 	
+	private void initLayout(BorderPane root) {
+
+		initinfoCenter(root);
+		initTileBoard(root);
+		
+	}
+
+	private void initTileBoard(BorderPane root) {
+		
+		
+	}
+
+	private void initinfoCenter(BorderPane root) {
+
+		
+	}
+
 	public static void main(String[] args) {
 		launch(args);
 	}
