@@ -11,4 +11,5 @@
 
 ### pictures of the project 
 
-![image of the main one ]tictactoe.png
+![image of the main one ](tictactoe.png)
+![image of winning ](tictactoewon.png)
