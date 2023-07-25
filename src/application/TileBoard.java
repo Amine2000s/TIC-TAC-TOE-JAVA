@@ -1,5 +1,6 @@
 package application;
 
+import application.TileBoard.Tile;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
@@ -205,12 +206,13 @@ public class TileBoard {
 		winningLine.setEndX(winningTiles.end.getStackPane().getTranslateX());
 		winningLine.setEndX(winningTiles.end.getStackPane().getTranslateY());
 		winningLine.setVisible(true);
-		pane.getChildren().add(winningLine);
+		StackPane lin = new StackPane(winningLine);
+		pane.getChildren().add(lin);
 
 		
 	}
 	
-	private class WinningTiles{
+	public class WinningTiles{
 		
 		Tile start ; 
 		Tile middle; 
@@ -227,7 +229,7 @@ public class TileBoard {
 		
 	}
 
-	private class Tile {
+	public class Tile {
 		
 		private StackPane pane ; 
 		private Label label ; 
