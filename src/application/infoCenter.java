@@ -38,10 +38,29 @@ public class infoCenter {
 		
 		pane.getChildren().add(startGameButton);
 		
+	}
 		
+		public StackPane getStackPane() {
+			return pane ; 
+		}
 		
-		
-		
+		public void updateMessagge(String message) {
+			
+			this.message.setText(message);
+			
 		
 	}
+		
+		public void showStartButton() {
+			
+			startGameButton.setVisible(true);
+			
+		}
+		
+		public void hideStartButton() {
+			
+			startGameButton.setVisible(false);
+		}
+		
+		
 }
