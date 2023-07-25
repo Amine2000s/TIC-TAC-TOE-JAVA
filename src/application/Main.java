@@ -14,6 +14,8 @@ import javafx.scene.layout.StackPane;
 public class Main extends Application {
 	
 	private infoCenter InfoCenter ;
+	private TileBoard tileBoard;
+	
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -44,7 +46,8 @@ public class Main extends Application {
 	}
 
 	private void initTileBoard(BorderPane root) {
-		
+		tileBoard = new TileBoard(InfoCenter);
+		root.getChildren().add(tileBoard.getStackPane());
 		
 	}
 
@@ -66,7 +69,7 @@ public class Main extends Application {
 				
 				InfoCenter.hideStartButton();
 				InfoCenter.updateMessage("Player X's Turn");
-				System.out.println("game is on");
+				tileBoard.startNewGame();
 				
 			}
 		};
