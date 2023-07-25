@@ -20,11 +20,11 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Label l = new Label("hello");
+			//Label l = new Label("hello");
 			
 			BorderPane root = new BorderPane();
 			
-			root.getChildren().add(l);
+			//root.getChildren().add(l);
 
 			Scene scene = new Scene(root,UIconstant.APP_WIDTH,UIconstant.APP_HEIGHT);
 

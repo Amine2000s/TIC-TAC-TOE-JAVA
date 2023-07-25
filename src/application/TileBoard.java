@@ -4,6 +4,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 
@@ -14,7 +15,7 @@ public class TileBoard {
 	private Tile[][] tiles = new Tile[3][3];
 	private char playerTurn = 'X';
 	private boolean isEndOfGame = false ;
-	
+	private Line winningLine;
 	
 	public TileBoard(infoCenter infoCenter) {
 		this.InfoCentre = infoCenter ; 
@@ -53,6 +54,7 @@ public class TileBoard {
 				tiles[row][column].setvalue("");
 			};	
 		}
+		winningLine.setVisible(false);
 	}
 	public void changePlayerTurn() {
 		if(playerTurn=='X') {
@@ -114,7 +116,9 @@ public class TileBoard {
 		&& !tiles[0][2].getvalue().isEmpty()){
 			
 		String winner = tiles[0][2].getvalue();
-		endGame(winner);
+		new WinningTiles(tiles[0][2],tiles[1][1] ,tiles[2][0]);
+
+		endGame(winner,new WinningTiles(tiles[0][2],tiles[1][1] ,tiles[2][0]));
 		//System.out.println("here in checkreversediagonalforwinner");
 
 		return;	
@@ -131,7 +135,10 @@ public class TileBoard {
 			&& !tiles[0][0].getvalue().isEmpty()){
 				
 			String winner = tiles[0][0].getvalue();
-			endGame(winner);
+			//new WinningTiles(tiles[0][0],tiles[1][1] ,tiles[2][2]);
+
+			endGame(winner,new WinningTiles(tiles[0][0],tiles[1][1] ,tiles[2][2]));
+
 			//System.out.println("here in checkdiagonalforwinner");
 
 			return;	
@@ -148,7 +155,10 @@ public class TileBoard {
 			&& !tiles[0][col].getvalue().isEmpty()){
 				
 			String winner = tiles[0][col].getvalue();
-			endGame(winner);
+			//new WinningTiles(tiles[0][col],tiles[1][col] ,tiles[2][col]);
+
+			endGame(winner,new WinningTiles(tiles[0][col],tiles[1][col] ,tiles[2][col]));
+
 			//System.out.println("here in checkcolsforwinner");
 
 			return;	
@@ -165,7 +175,9 @@ public class TileBoard {
 			&& !tiles[rows][0].getvalue().isEmpty()){
 				
 			String winner = tiles[rows][0].getvalue();
-			endGame(winner);
+			// new WinningTiles(tiles[rows][0],tiles[rows][1] ,tiles[rows][2]);
+			endGame(winner,new WinningTiles(tiles[rows][0],tiles[rows][1] ,tiles[rows][2]));
+
 			//System.out.println("here in checkrowsforWinner");
 
 			return;	
@@ -175,12 +187,45 @@ public class TileBoard {
 		
 	}
 	
-	private void endGame(String winner) {
+	private void endGame(String winner,WinningTiles winningTiles) {
 		isEndOfGame=true;
 		InfoCentre.updateMessage("Player" + winner + "won");
-		InfoCentre.showStartButton();;
+		drawWinningLine(winningTiles);
+		InfoCentre.showStartButton();
 	}
+	
+	
+	
+	public void drawWinningLine(WinningTiles winningTiles) {
 
+		winningLine.setStartX(winningTiles.start.getStackPane().getTranslateX());
+		winningLine.setStartY(winningTiles.start.getStackPane().getTranslateY());
+		winningLine.setTranslateX(winningTiles.middle.getStackPane().getTranslateX());
+		winningLine.setTranslateY(winningTiles.middle.getStackPane().getTranslateY());
+		winningLine.setEndX(winningTiles.end.getStackPane().getTranslateX());
+		winningLine.setEndX(winningTiles.end.getStackPane().getTranslateY());
+		winningLine.setVisible(true);
+		pane.getChildren().add(winningLine);
+
+		
+	}
+	
+	private class WinningTiles{
+		
+		Tile start ; 
+		Tile middle; 
+		Tile end ; 
+		
+		public WinningTiles(Tile start,Tile middle,Tile end) {
+			
+			this.start = start; 
+			this.middle = middle; 
+			this.end = end ; 
+			
+		}
+		
+		
+	}
 
 	private class Tile {
 		
