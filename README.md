@@ -8,3 +8,7 @@
 - [ ] fixing the line winning
 - [ ] also i ll leave the folder concept if anyone want to add the needed modification 
 ## any contribustions , suggestions , reports are welcomed !!!
+
+### pictures of the project 
+
+![image of the main one ]tictactoe.png
