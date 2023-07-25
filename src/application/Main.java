@@ -17,7 +17,7 @@ public class Main extends Application {
 			StackPane root = new StackPane();
 			root.getChildren().add(l);
 			//BorderPane.setAlignment(l, Pos.BOTTOM_CENTER);
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root,UIconstant.APP_WIDTH,UIconstant.APP_HEIGHT);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
