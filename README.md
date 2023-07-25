@@ -4,7 +4,7 @@
 
 ## upcoming features : 
 _______________________________________________________________________________________
--[] adding a main menu panel containt start button and an option button to costumize your board + adding the names of the players 
--[] making it in a form of an .exe
+-[ ] adding a main menu panel containt start button and an option button to costumize your board + adding the names of the players \n
+-[ ] making it in a form of an .exe
 _________________________________________________________________________________
 ## any contribustions , suggestions , reports are welcomed !!!
